@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EOC Position Check-in</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .logo {
+            width: 150px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input {
+            width: 95%;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <img src="san_jose_logo.png" alt="City of San José Logo" class="logo">
+    <h2>EOC Position Check-in</h2>
+    <form>
+        <table>
+            <thead>
+                <tr>
+                    <th>EOC Position</th>
+                    <th>Print Name</th>
+                    <th>Signature</th>
+                    <th>EOC Packet? (Y/N)</th>
+                    <th>EOC Hang Tag? (Y/N)</th>
+                </tr>
+            </thead>
+            <tbody id="checkinTable">
+                <tr>
+                    <td><input type="text" name="position"></td>
+                    <td><input type="text" name="name"></td>
+                    <td><input type="text" name="signature"></td>
+                    <td><input type="text" name="packet"></td>
+                    <td><input type="text" name="hangtag"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" onclick="addRow()">Add Row</button>
+    </form>
+
+    <script>
+        function addRow() {
+            let table = document.getElementById("checkinTable");
+            let newRow = table.insertRow();
+            for (let i = 0; i < 5; i++) {
+                let cell = newRow.insertCell(i);
+                let input = document.createElement("input");
+                input.type = "text";
+                cell.appendChild(input);
+            }
+        }
+    </script>
+</body>
+</html>
